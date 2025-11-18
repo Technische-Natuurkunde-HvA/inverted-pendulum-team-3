@@ -12,7 +12,7 @@ const int pulsesPerRevolution = 11; // pulses per rotation from each encoder wir
 unsigned long lastTime = 0;   // store last time measurement
 double frequency = 0;         // measured frequency
 
-double output = 80;          // motor output value
+double output = 255;          // motor output value
 
 void countPulse();
 
@@ -48,7 +48,7 @@ void loop() {
     interrupts();
 
     frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
-
+// waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
     Serial.print(output);
     Serial.print("  Frequency: ");
