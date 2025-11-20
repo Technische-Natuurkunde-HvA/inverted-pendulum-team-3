@@ -14,7 +14,7 @@ Use the GitHub repository to store important project files (code, visuals includ
 # Week 1
 
 ## 1. Progress description
-We changed the code so it accelarates and deccelarates a set amount from -255 to 255. We also added an RPM output. We also thought about how the entire system would come together in the end and made a simple flowchart out of it. We also researched the language of code needed for arduino so we can understand it better. 
+We changed the code so it accelarates and deccelarates a set amount from -255 to 255. We also added an RPM output. We also thought about how the entire system would come together in the end and made a simple flowchart out of it. We also researched the language of code needed for arduino so we can understand it better. We have made an outputresponsecurve, we have done that through python where we read the data in the arduino IDE and hardcoded it in python for a first version (python code: "dataV1.py). 
 
 ## 2. Code
 
@@ -68,6 +68,7 @@ Add charts and other visuals to the `visuals` folder in the GitHub repository an
 
 Like mentioned above we made a flowchart (FlowChartV1.jpeg).
 We also made a video to demonstrate the change of output (V1.mp4)
+we also made an outputresponsegraph both with the frequency and rpm. we set everything between -55 and 55 to 0 because the engine doesnt have enough power to spin it but it still had momentum. 
 
 
 ## 4. Measurement protocol
@@ -76,3 +77,5 @@ We will measure the PWM values from 50 to 255 and -50 to -255. We choose for thi
 ## 5. Reflection 
 What did you learn this week?
 What should you focus on or improve in the coming weeks of the project?
+
+We learned to code the arduino and learned how the pid would be used we havent added yet but we have seen a use for it. We should improve that the wheel actually gets lifted by the torque, and to automate the data because for the first time we think its okay to hard code the data from the arduino IDE to python but we do need to automate it. We are gonna establish a pyserial connection in the coming week. 
