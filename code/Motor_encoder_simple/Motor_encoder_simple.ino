@@ -39,7 +39,7 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - lastOutputChange >= 1000 && negativeOutputChange == true) {  // every 1000 ms
+  if (millis() - lastOutputChange >= 3000 && negativeOutputChange == true) {  // every 1000 ms
     if(output == -255){
       negativeOutputChange = false;
       lastOutputChange = millis();
@@ -50,7 +50,7 @@ void loop() {
       lastOutputChange = millis();
     }
   }
-  else if(millis() - lastOutputChange >= 1000 && negativeOutputChange == false){
+  else if(millis() - lastOutputChange >= 3000 && negativeOutputChange == false){
       if(output == 255){
       negativeOutputChange = true;
       lastOutputChange = millis();
