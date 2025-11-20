@@ -14,7 +14,7 @@ Use the GitHub repository to store important project files (code, visuals includ
 # Week 1
 
 ## 1. Progress description
-We changed the code so it accelarates and deccelarates a set amount from -255 to 255. We also added an RPM output. We also thought about how the entire system would come together in the end and made a simple flowchart out of it. We also researched the language of code needed for arduino so we can understand it better. We have made an outputresponsecurve, we have done that through python where we read the data in the arduino IDE and hardcoded it in python for a first version (python code: "dataV1.py). 
+We changed the code so it accelarates and deccelarates a set amount from -255 to 255 PWM. We also added an RPM output. We also thought about how the entire system would come together in the end and made a simple flowchart out of it. We researched the language of code needed for arduino so we can understand it better. We have made an outputresponsecurve, we have done that through python where we read the data in the arduino IDE and hardcoded it in python for a first version (python code: "dataV1.py"). 
 
 ## 2. Code
 
@@ -46,20 +46,7 @@ if (millis() - lastOutputChange >= 1000 && negativeOutputChange == true) {  // e
       lastOutputChange = millis();
     }```
 
-#### Example:
 
-```c
-// Header file for input/output functions
-#include <stdio.h>
-
-// Main function: entry point for execution
-int main() {
-
-    // Print a message to the console
-    printf("Hello World");
-
-    return 0;
-}
 ``` 
 ## 3. Results
 Present your results here. This may include tables, figures, or charts.
@@ -78,4 +65,4 @@ We will measure the PWM values from 50 to 255 and -50 to -255. We choose for thi
 What did you learn this week?
 What should you focus on or improve in the coming weeks of the project?
 
-We learned to code the arduino and learned how the pid would be used we havent added yet but we have seen a use for it. We should improve that the wheel actually gets lifted by the torque, and to automate the data because for the first time we think its okay to hard code the data from the arduino IDE to python but we do need to automate it. We are gonna establish a pyserial connection in the coming week. 
+We learned to code the arduino and learned how the pid would be used we havent added yet but we have seen a use for it. We should improve that the wheel actually gets lifted by the torque, and to automate the data because for the first time we think its okay to hard code the data from the arduino IDE to python but we do need to automate it. We are gonna establish a pyserial connection in the coming week. We also are going to attached and integrate the anglular sensor. 
