@@ -27,28 +27,3 @@ plt.show()
 
 
 
-# --- UPDATE THIS PORT ---
-PORT = "COM4"       # Windows example
-# PORT = "/dev/ttyACM0"   # Linux
-# PORT = "/dev/tty.usbmodem1101"  # Mac
-
-BAUD = 9600
-
-# Open serial connection
-ser = serial.Serial(PORT, BAUD, timeout=1)
-
-# Wait for Arduino reset (important!)
-time.sleep(2)
-
-print("Reading angle data...\n")
-
-try:
-    while True:
-        if ser.in_waiting > 0:
-            line = ser.readline().decode("utf-8").strip()
-            print("Angle:", line)
-
-except KeyboardInterrupt:
-    print("Stopped.")
-finally:
-    ser.close()
