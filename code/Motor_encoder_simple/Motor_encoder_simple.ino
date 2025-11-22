@@ -1,3 +1,11 @@
+#include <Wire.h>
+#include <AS5600.h>
+AS5600  as5600;  //create sensor object
+unsigned long currentMs;  //current time variable
+unsigned long lastMs;     // time of last measurement
+const unsigned int FREE_RUN_PERIOD_MS = 100; //sampling period
+float sig_angle_deg;  // angle measurement
+
 // Motor control pins
 const int motorPin1 = 10; // IN1 
 const int motorPin2 = 11; // IN2 
@@ -33,9 +41,12 @@ void setup() {
   pinMode(encoderPin, INPUT_PULLUP); // 1 encoder input
 
   attachInterrupt(digitalPinToInterrupt(encoderPin), countPulse, RISING);
-
-  Serial.begin(9600);
-  lastTime = millis();
+ Wire.begin();     // Initialize I2C
+  as5600.begin();   // Initialize sensor
+  lastTime = millis();  // Initialize timing
+  Serial.begin(9600);  // Initialize Serial Monitor
+  delay(2000);
+  
 }
 
 void loop() {
@@ -88,7 +99,7 @@ void loop() {
     interrupts();
 
     frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
-    wheelRPM = (count * 60.0) / (pulsesPerRevolution  * reductionRatio);
+    wheelRPM = (count * 60.0*2) / (pulsesPerRevolution  * reductionRatio);
 // waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
     Serial.print(output);
@@ -96,8 +107,11 @@ void loop() {
     Serial.print(frequency);
     Serial.print(" Hz");
     Serial.print(" Wheel RPM: ");
-    Serial.println(wheelRPM);
-
+    Serial.print(wheelRPM);
+      lastMs = currentMs;
+      sig_angle_deg = (float)as5600.readAngle()*0.0879; //0.0879=360/4096;  // degrees [0..360)
+      Serial.print(String(" Angle: ") + sig_angle_deg + '\t');
+      Serial.println();  
     lastTime = millis();
   }
 }
