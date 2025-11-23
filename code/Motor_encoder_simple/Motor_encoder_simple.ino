@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <AS5600.h>
+#include <PID_v1.h>
 AS5600  as5600;  //create sensor object
 unsigned long currentMs;  //current time variable
 unsigned long lastMs;     // time of last measurement
@@ -23,6 +24,20 @@ double frequency = 0;         // measured frequency
 double output = 255;    // motor output value
 
 bool negativeOutputChange = true ;     // variable to dictate which direction the output needs to change to
+
+// ---------------- PID variables ----------------
+double Setpoint = 0;     // target RPM
+double Input    = 0;     // measured RPM
+double Output   = 0;     // PID output (-255..255)
+
+// PID tuning parameters — adjust later
+double Kp = 2.0;
+double Ki = 5.0;
+double Kd = 0.5;
+
+// Create PID controller
+PID motorPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
+
 
 double d_wheel = 12.3;
 double d_engine = 2.44;
