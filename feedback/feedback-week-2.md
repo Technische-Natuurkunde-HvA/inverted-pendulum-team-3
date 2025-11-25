@@ -1,0 +1,6 @@
+- In the progress file, you mixed text from the template provided with your own progress. This is confusing for the reader. Please make sure next time to have a clean progress, using the template but including only your progress
+- It seems that you have done more than you reported on. Looking at the code folder in your repository it seems that you have code for automating data gathering and code to create charts. The results are not included in the progress file.
+- Great that you have created a flow-chart outlining how the different pieces of code work together. We like 
+- Very nice video and great colour choice for the pendulum 
+- You made a nice chart. Why didn’t you include that in the progress? The advantage would be that you can explain what is on the chart and give it some context
+- For readability make sure that you use bullet-points. You attempt to write a paragraph with a summation of what you have done. It is much better to structure your text in bullet points.
