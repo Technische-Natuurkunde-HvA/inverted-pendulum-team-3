@@ -38,11 +38,7 @@ double Kd = 0.5;
 // Create PID controller
 PID motorPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
-
-double d_wheel = 12.3;
-double d_engine = 2.44;
-
-double reductionRatio = d_wheel/d_engine;
+double reductionRatio = 4.4;
 
 double wheelRPM = 0;
 
@@ -114,7 +110,7 @@ void loop() {
     interrupts();
 
     frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
-    wheelRPM = (count * 60.0*2) / (pulsesPerRevolution  * reductionRatio);
+    wheelRPM = (count * 60.0) / (pulsesPerRevolution  * reductionRatio);
 // waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
     Serial.print(output);
