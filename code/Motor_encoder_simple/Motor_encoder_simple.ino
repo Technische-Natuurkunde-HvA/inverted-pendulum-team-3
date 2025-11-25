@@ -26,8 +26,8 @@ double output = 255;    // motor output value
 bool negativeOutputChange = true ;     // variable to dictate which direction the output needs to change to
 
 // ---------------- PID variables ----------------
-double Setpoint = 0;     // target RPM
-double Input    = 0;     // measured RPM
+double Setpoint = 0;     // target angle
+double Input    = 0;     // current angle
 double Output   = 0;     // PID output (-255..255)
 
 // PID tuning parameters — adjust later
@@ -61,30 +61,30 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - lastOutputChange >= 3000 && negativeOutputChange == true) {  // every 1000 ms
-    if(output == -255){
-      negativeOutputChange = false;
-      lastOutputChange = millis();
+  // if (millis() - lastOutputChange >= 3000 && negativeOutputChange == true) {  // every 1000 ms
+  //   if(output == -255){
+  //     negativeOutputChange = false;
+  //     lastOutputChange = millis();
       
-    }
-    else{
-      output -= 10;      // decrease speed
-      lastOutputChange = millis();
-    }
-  }
-  else if(millis() - lastOutputChange >= 3000 && negativeOutputChange == false){
-      if(output == 255){
-      negativeOutputChange = true;
-      lastOutputChange = millis();
+  //   }
+  //   else{
+  //     output -= 10;      // decrease speed
+  //     lastOutputChange = millis();
+  //   }
+  // }
+  // else if(millis() - lastOutputChange >= 3000 && negativeOutputChange == false){
+  //     if(output == 255){
+  //     negativeOutputChange = true;
+  //     lastOutputChange = millis();
       
-      }
+  //     }
     
-    else{
-      output += 10;      // decrease speed
-      lastOutputChange = millis();
-    }
-    
-  }
+  //   else{
+  //     output += 10;      // decrease speed
+  //     lastOutputChange = millis();
+  //   }
+    output = 255;
+  
  
   // Motor direction + speed
   if (output > 0) 
