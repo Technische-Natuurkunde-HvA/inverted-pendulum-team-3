@@ -63,6 +63,7 @@ try:
             freq   = float(match.group(2))
             rpm    = float(match.group(3))
             angle  = float(match.group(4))
+
             timelist.append(time.time() - start)
             anglelist.append(angle)
             rpmlist.append(rpm)
@@ -80,7 +81,9 @@ try:
             ax1.relim();  ax1.autoscale_view()
             ax2.relim();  ax2.autoscale_view()
             ax3.relim();  ax3.autoscale_view()
+
             plt.pause(0.01)
+
 except KeyboardInterrupt:
     print("Stopped.")
     
@@ -104,12 +107,15 @@ plt.close('all')
 
 
 fig2, (ax1f, ax2f, ax3f) = plt.subplots(3, 1, figsize=(8, 10))
+
 ax1f.plot(timelist, anglelist, label="Angle")
 ax2f.plot(timelist, outputlist, label="Output")
 ax3f.plot(timelist, rpmlist, label="RPM")
+
 ax1f.set_ylabel("Angle (deg)"); ax2f.set_ylabel("Output"); ax3f.set_ylabel("RPM")
 ax1f.set_xlabel("Time (s)");ax2f.set_xlabel("Time (s)");ax3f.set_xlabel("Time (s)")
 ax1f.legend(); ax2f.legend(); ax3f.legend()
+
 plt.tight_layout()
 plt.show()
 
