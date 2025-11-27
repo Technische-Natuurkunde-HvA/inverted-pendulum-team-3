@@ -11,7 +11,7 @@
 
 ## 2. Code
 
-
+```c
 if (millis() - lastOutputChange >= 1000 && negativeOutputChange == true) {  // every 1000 ms
     if(output == -255){
       negativeOutputChange = false;
