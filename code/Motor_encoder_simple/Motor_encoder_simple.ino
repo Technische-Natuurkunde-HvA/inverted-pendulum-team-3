@@ -36,7 +36,8 @@ double Ki = 5.0;
 double Kd = 0.5;
 
 // Create PID controller
-PID motorPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
+PID anglePID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
+
 
 double reductionRatio = 4.4;
 
@@ -56,34 +57,23 @@ void setup() {
   as5600.begin();   // Initialize sensor
   lastTime = millis();  // Initialize timing
   Serial.begin(9600);  // Initialize Serial Monitor
+  // PID config
+  anglePID.SetMode(AUTOMATIC);
+  anglePID.SetOutputLimits(-255, 255);  // motor control range
+
+  // -------- Set your desired angle here --------
+  Setpoint = 240;  // target angle (0–360 degrees)
   delay(2000);
   
 }
 
 void loop() {
-  // if (millis() - lastOutputChange >= 3000 && negativeOutputChange == true) {  // every 1000 ms
-  //   if(output == -255){
-  //     negativeOutputChange = false;
-  //     lastOutputChange = millis();
-      
-  //   }
-  //   else{
-  //     output -= 10;      // decrease speed
-  //     lastOutputChange = millis();
-  //   }
-  // }
-  // else if(millis() - lastOutputChange >= 3000 && negativeOutputChange == false){
-  //     if(output == 255){
-  //     negativeOutputChange = true;
-  //     lastOutputChange = millis();
-      
-  //     }
-    
-  //   else{
-  //     output += 10;      // decrease speed
-  //     lastOutputChange = millis();
-  //   }
-    output = 255;
+  double angleDeg = as5600.readAngle() * 0.0879;
+
+  Input = angleDeg;
+
+  // Run PID
+  anglePID.Compute();
   
  
   // Motor direction + speed
@@ -110,7 +100,7 @@ void loop() {
     interrupts();
 
     frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
-    wheelRPM = (count * 60.0) / (pulsesPerRevolution  * reductionRatio);
+    wheelRPM = (count * 60.0) / (reductionRatio);
 // waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
     Serial.print(output);
