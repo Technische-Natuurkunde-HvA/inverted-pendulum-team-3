@@ -46,8 +46,10 @@ void loop() {
     output = output - 2;
     delay(5);
   }
-  else if (sig_angle_deg < 260){
-    output = 0 ;
+  else if (sig_angle_deg < 260 && ouput >-200){
+    // use output bigger or smaller then 0 basically its spinning in the opposite direction.
+    output = output -8 ;
+    delay(10)
   }
 
   analogWrite(enablePin, abs(output));
