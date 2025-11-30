@@ -23,7 +23,7 @@ double frequency = 0;         // measured frequency
 
 double output = 255;    // motor output value
 
-bool negativeOutputChange = true ;     // variable to dictate which direction the output needs to change to
+int graphinterval = 100; //in milliseconds
 
 // ---------------- PID variables ----------------
 double Setpoint = 0;     // target angle
@@ -59,7 +59,8 @@ void setup() {
   Serial.begin(9600);  // Initialize Serial Monitor
   // PID config
   anglePID.SetMode(AUTOMATIC);
-  anglePID.SetOutputLimits(-255, 255);  // motor control range
+  anglePID.SetOutputLimits(-210, 210);  // motor control range
+  int deadzone = 45;
 
   // -------- Set your desired angle here --------
   Setpoint = 240;  // target angle (0–360 degrees)
@@ -93,13 +94,13 @@ void loop() {
   analogWrite(enablePin, abs(output));
   
   // Frequency calculation every 0.5 seconds
-  if (millis() - lastTime >= 500) {
+  if (millis() - lastTime >= milliseconds) {
     noInterrupts();
     int count = pulseCount;
     pulseCount = 0;
     interrupts();
 
-    frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
+    frequency = count / (pulsesPerRevolution*(milliseconds/100)); // frequency in Hz
     wheelRPM = (count * 60.0) / (reductionRatio);
 // waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
