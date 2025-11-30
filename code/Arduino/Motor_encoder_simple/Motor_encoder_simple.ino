@@ -1,6 +1,5 @@
 #include <Wire.h>
 #include <AS5600.h>
-#include <PID_v1.h>
 AS5600  as5600;  //create sensor object
 unsigned long currentMs;  //current time variable
 unsigned long lastMs;     // time of last measurement
@@ -23,21 +22,7 @@ double frequency = 0;         // measured frequency
 
 double output = 255;    // motor output value
 
-int graphinterval = 100; //in milliseconds
-
-// ---------------- PID variables ----------------
-double Setpoint = 0;     // target angle
-double Input    = 0;     // current angle
-double Output   = 0;     // PID output (-255..255)
-
-// PID tuning parameters — adjust later
-double Kp = 2.0;
-double Ki = 5.0;
-double Kd = 0.5;
-
-// Create PID controller
-PID anglePID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
-
+bool negativeOutputChange = true ;     // variable to dictate which direction the output needs to change to
 
 double reductionRatio = 4.4;
 
@@ -57,25 +42,35 @@ void setup() {
   as5600.begin();   // Initialize sensor
   lastTime = millis();  // Initialize timing
   Serial.begin(9600);  // Initialize Serial Monitor
-  // PID config
-  anglePID.SetMode(AUTOMATIC);
-  anglePID.SetOutputLimits(-210, 210);  // motor control range
-  int deadzone = 45;
-
-  // -------- Set your desired angle here --------
-  Setpoint = 240;  // target angle (0–360 degrees)
   delay(2000);
   
 }
 
 void loop() {
-  double angleDeg = as5600.readAngle() * 0.0879;
-
-  Input = angleDeg;
-
-  // Run PID
-  anglePID.Compute();
-  
+  if (millis() - lastOutputChange >= 3000 && negativeOutputChange == true) {  // every 1000 ms
+    if(output == -255){
+      negativeOutputChange = false;
+      lastOutputChange = millis();
+      
+    }
+    else{
+      output -= 10;      // decrease speed
+      lastOutputChange = millis();
+    }
+  }
+  else if(millis() - lastOutputChange >= 3000 && negativeOutputChange == false){
+      if(output == 255){
+      negativeOutputChange = true;
+      lastOutputChange = millis();
+      
+      }
+    
+    else{
+      output += 10;      // decrease speed
+      lastOutputChange = millis();
+    }
+    
+  }
  
   // Motor direction + speed
   if (output > 0) 
@@ -94,14 +89,14 @@ void loop() {
   analogWrite(enablePin, abs(output));
   
   // Frequency calculation every 0.5 seconds
-  if (millis() - lastTime >= milliseconds) {
+  if (millis() - lastTime >= 500) {
     noInterrupts();
     int count = pulseCount;
     pulseCount = 0;
     interrupts();
 
-    frequency = count / (pulsesPerRevolution*(milliseconds/100)); // frequency in Hz
-    wheelRPM = (count * 60.0) / (reductionRatio);
+    frequency = count / (pulsesPerRevolution*0.5); // frequency in Hz
+    wheelRPM = (frequency) / (pulsesPerRevolution  * reductionRatio);
 // waardes opslaan in lijst om te plotten
     Serial.print("Output: ");
     Serial.print(output);
