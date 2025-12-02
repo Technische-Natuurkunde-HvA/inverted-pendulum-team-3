@@ -29,9 +29,9 @@ double output   = 0;     // PID output (-255..255)
 double deadzone = 45;    // zone of the motor where it doesnt spin
 
 // PID tuning parameters
-double Kp = 2.0;
-double Ki = 5.0;
-double Kd = 0.5;
+double Kp = 35.0;
+double Ki = 0.0;
+double Kd = 0;
 
 // Create PID controller
 PID anglePID(&Input, &output, &Setpoint, Kp, Ki, Kd, DIRECT);
@@ -61,7 +61,7 @@ void setup() {
   
 
   // -------- Set your desired angle here --------
-  Setpoint = 240;  // target angle (0–360 degrees)
+  Setpoint = 330.77;  // target angle (0–360 degrees)
 }
 
 void loop() {
@@ -125,7 +125,10 @@ void loop() {
 
     lastMs = currentMs;
     // sig_angle_deg = (float)as5600.readAngle()*0.0879; //0.0879=360/4096;  // degrees [0..360)
-    Serial.print(String(" Angle: ") + sig_angle_deg + '\t');
+    Serial.print(" Angle: ");
+    Serial.print(angleDeg);
+    Serial.print('\t');
+
     Serial.println();  
     lastTime = millis();
   }
