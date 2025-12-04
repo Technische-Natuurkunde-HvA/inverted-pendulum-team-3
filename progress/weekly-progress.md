@@ -1,62 +1,24 @@
 
-
-# Week 1
+# Week 3 (eigenljk week 4)
 
 ## 1. Progress description
-- We changed the code so it accelarates and deccelarates a set amount from -255 to 255 PWM. 
-- We added an RPM output. 
-- We hought about how the entire system would come together in the end and made a simple flowchart out of it. 
-- We researched the language of code needed for arduino so we can understand it better. 
-- We have made an outputresponsecurve, we have done that through python where we read the data in the arduino IDE and hardcoded it in python for a first version (python code: "dataV1.py"). 
 
-## 2. Code
+- We tested the PID code from week 2, it worked fine after some minor tweaks.(see map inverted-pendulum-team-3\code\Arduino\PIDController)
+- With the pendulum starting in the middle position, it could correct for being pushed to the left and the right.
+- In the middle position, the flywheel still spins but slows down to a halt after enough time.
+- It can't yet lift itself up from a bumber position. In that case the flywheel will keep spinning faster and faster in one direction and the systems starts shaking voilently. 
+- We think we can fix this with some additional code
 
-```c
-if (millis() - lastOutputChange >= 1000 && negativeOutputChange == true) {  // every 1000 ms
-    if(output == -255){
-      negativeOutputChange = false;
-      lastOutputChange = millis();
-      
-    }
-    else{
-      output -= 10;      // decrease speed
-      lastOutputChange = millis();
-    }
-  }
-  else if(millis() - lastOutputChange >= 1000 && negativeOutputChange == false){
-      if(output == 255){
-      negativeOutputChange = true;
-      lastOutputChange = millis();
-      
-      }
-    
-    else{
-      output += 10;      // decrease speed
-      lastOutputChange = millis();
-    }```
+## 2. Code (main focus this week)
 
-
-``` 
+// PID tuning parameters
+double Kp = 30.0;
+double Ki = 0.0;
+double Kd = 0.5;
+- this simple configuration worked the best. Adding a small postive Kd made the flywheel slowly stop spinning, but too big and it seemed to have a negative impact on the stability.
 ## 3. Results
 
-
-
-- Like mentioned above we made a flowchart (FlowChartV1.jpeg). It starts as it shows with the wheel, the wheel has a certain position and that position gets measured with the angle sensor. The angle sensor then gives the angle to a python file and the PID controller, the python file will have live data so we can have live graphs and data visualization. The PID controller will make an adjustment in the output based on the current angle and the desired angle. After the adjustment is made it goes back to the angle sensor and thats how we wanna setup our code.
-- We also made a video to demonstrate the change of output (V1.mp4)
-- We also made an outputresponsegraph both with the frequency and rpm. we set everything between -55 and 55 to 0 because the engine doesnt have enough power to spin it but it still had momentum. 
-
-
-## 4. Measurement protocol
-We will measure the PWM values from 50 to 255 and -50 to -255. We choose for this because we observed that the wheel isnt spinning from -50 to 50. We want to perform 3 measurements per value and steps of 10 so it doesnt take too long and we still get enough data points. We are gonna measure both sides so the negative and the positive to see if theres a noticable difference. We want to setup a pyserial connection to python to visualize the data there. 
-
-## 5. Reflection 
-
-
-- We learned to code the arduino and learned how the pid would be used we havent added yet but we have seen a use for it. 
-- We should improve that the wheel actually gets lifted by the torque, and to automate the data because for the first time we think its okay to hard code the data from the arduino IDE to python but we do need to automate it. 
-- We are gonna establish a pyserial connection in the coming week. 
-- We are going to attached and integrate the anglular sensor. 
-
+## 4. Reflection
 
 # Week 2
 
@@ -74,7 +36,7 @@ We will measure the PWM values from 50 to 255 and -50 to -255. We choose for thi
 
 ## 2. Code
 ```c 
-ouble Setpoint = 0;     // target angle
+double Setpoint = 0;     // target angle
 double Input    = 0;     // current angle
 double output   = 0;     // PID output (-255..255)
 double deadzone = 45;    // zone of the motor where it doesnt spin
@@ -220,3 +182,63 @@ df.to_csv(f'data/{filename}', index=False)
 
 - We are gonna focus on finding the most ideal PID values. We are gonna do this by trial and error and following the things we learnt with math class. Once we have the ideal PID values we are gonna add the code supplied during class so the wheel can start on the side.
 - We are gonna focus on optimizing the code and try to make it faster and more effecient.
+
+# Week 1
+
+## 1. Progress description
+- We changed the code so it accelarates and deccelarates a set amount from -255 to 255 PWM. 
+- We added an RPM output. 
+- We hought about how the entire system would come together in the end and made a simple flowchart out of it. 
+- We researched the language of code needed for arduino so we can understand it better. 
+- We have made an outputresponsecurve, we have done that through python where we read the data in the arduino IDE and hardcoded it in python for a first version (python code: "dataV1.py"). 
+
+## 2. Code
+
+```c
+if (millis() - lastOutputChange >= 1000 && negativeOutputChange == true) {  // every 1000 ms
+    if(output == -255){
+      negativeOutputChange = false;
+      lastOutputChange = millis();
+      
+    }
+    else{
+      output -= 10;      // decrease speed
+      lastOutputChange = millis();
+    }
+  }
+  else if(millis() - lastOutputChange >= 1000 && negativeOutputChange == false){
+      if(output == 255){
+      negativeOutputChange = true;
+      lastOutputChange = millis();
+      
+      }
+    
+    else{
+      output += 10;      // decrease speed
+      lastOutputChange = millis();
+    }```
+
+
+``` 
+## 3. Results
+
+
+
+- Like mentioned above we made a flowchart (FlowChartV1.jpeg). It starts as it shows with the wheel, the wheel has a certain position and that position gets measured with the angle sensor. The angle sensor then gives the angle to a python file and the PID controller, the python file will have live data so we can have live graphs and data visualization. The PID controller will make an adjustment in the output based on the current angle and the desired angle. After the adjustment is made it goes back to the angle sensor and thats how we wanna setup our code.
+- We also made a video to demonstrate the change of output (V1.mp4)
+- We also made an outputresponsegraph both with the frequency and rpm. we set everything between -55 and 55 to 0 because the engine doesnt have enough power to spin it but it still had momentum. 
+
+
+## 4. Measurement protocol
+We will measure the PWM values from 50 to 255 and -50 to -255. We choose for this because we observed that the wheel isnt spinning from -50 to 50. We want to perform 3 measurements per value and steps of 10 so it doesnt take too long and we still get enough data points. We are gonna measure both sides so the negative and the positive to see if theres a noticable difference. We want to setup a pyserial connection to python to visualize the data there. 
+
+## 5. Reflection 
+
+
+- We learned to code the arduino and learned how the pid would be used we havent added yet but we have seen a use for it. 
+- We should improve that the wheel actually gets lifted by the torque, and to automate the data because for the first time we think its okay to hard code the data from the arduino IDE to python but we do need to automate it. 
+- We are gonna establish a pyserial connection in the coming week. 
+- We are going to attached and integrate the anglular sensor. 
+
+
+
