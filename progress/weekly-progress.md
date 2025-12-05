@@ -1,5 +1,5 @@
 
-# Week 3 (eigenljk week 4)
+# Week 4 
 
 ## 1. Progress description
 
@@ -10,17 +10,18 @@
 - We think we can fix this with some additional code
 
 ## 2. Code (main focus this week)
-
+```c
 // PID tuning parameters
 double Kp = 30.0;
 double Ki = 0.0;
 double Kd = 0.5;
+```
 - this simple configuration worked the best. Adding a small postive Kd made the flywheel slowly stop spinning, but too big and it seemed to have a negative impact on the stability.
 ## 3. Results
 
 ## 4. Reflection
 
-# Week 2
+# Week 3
 
 ## 1. Progress description
 
@@ -87,6 +88,9 @@ void loop() {
   ``` 
  ```python
 
+    #generates the current date and time
+  filename = f"data_{now.strftime('%d-%m-%Y_%H-%M')}.csv"
+
   pattern = re.compile(
     r"Output:\s*([-0-9.]+)\s*Frequency:\s*([-0-9.]+)\s*Hz\s*Wheel RPM:\s*([-0-9.]+)\s*Angle:\s*([-0-9.]+)")
 
@@ -97,22 +101,26 @@ outputlist= []
 timelist = []
 currenttime = 0 
 
+# activates interactive pyplot
 plt.ion()
 
+#defining what the graphs look like (whats in it etc)
 fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(8, 10))
 anglegraph, = ax1.plot([], [], label="Angle")
 outputgraph, = ax2.plot([],[], label="Output")
 rpmgraph, = ax3.plot([],[], label="RPM")
 
+# setting x label
 ax1.set_title("Time (s)")
 ax2.set_title("Time (s)")
 ax3.set_title("Time (s)")
 
+# setting y label
 ax1.set_ylabel("Angle (degrees)")
 ax2.set_ylabel("Output")
 ax3.set_ylabel("RPM")
 
-
+#activating the legend
 ax1.legend()
 ax2.legend()
 ax3.legend()
@@ -123,16 +131,19 @@ try:
         print(line)
         match = pattern.search(line)
         if match:
+            # uses the split output from the arduino and makes it variabel (float)
             output = float(match.group(1))
             freq   = float(match.group(2))
             rpm    = float(match.group(3))
             angle  = float(match.group(4))
 
+            # adds the variables to the list
             timelist.append(time.time() - start)
             anglelist.append(angle)
             rpmlist.append(rpm)
             outputlist.append(output)
-            
+
+            # Sets the data for the live graphs            
             anglegraph.set_xdata(list(timelist))
             anglegraph.set_ydata(list(anglelist))
 
@@ -142,6 +153,7 @@ try:
             rpmgraph.set_xdata(list(timelist))
             rpmgraph.set_ydata(list(rpmlist))
 
+            #autoscale
             ax1.relim();  ax1.autoscale_view()
             ax2.relim();  ax2.autoscale_view()
             ax3.relim();  ax3.autoscale_view()
@@ -154,7 +166,7 @@ except KeyboardInterrupt:
 finally:
     ser.close()        
 
-
+# sets it to a data set so it can be exported as csv
 data = {
     "Time": timelist,
     "Angle": anglelist,
@@ -168,7 +180,7 @@ df.to_csv(f'data/{filename}', index=False)
 
 
 ## 3. Results
-- As mentioned above we updated our OutputResponse curve. We replaced the old one with the new one (OutputResponseCurve.png)
+- ![as mentioned above we updated our OutputResponse curve. We replaced the old one with the new one (OutputResponseCurve.png)](OutputResponseCurve.png)
 - Angle sensor works
 - Every variable we can measure gets send to python during measurements. We can now observe what happens during measurements with live data. This can be especially useful when we start using our PID next week and need to adjust the PID values because we can monitor the effects on the RPM, ouput and angle. We havent added the pyserial code to the code section since we felt like we already have a lot of code. What happens in the python code is takes the string given by the arduino. It breaks it up and it parces it into a float so we can use it for the graphs. Once the connection/measurement has finished it gets turned into a csv. 
 - We lifted the wheel and it slowed down when it came closer to the center. We did this by editing supplied code, our plan is to use this code later when we got our PID working to make the wheel be able to center itself from every position.
@@ -183,7 +195,7 @@ df.to_csv(f'data/{filename}', index=False)
 - We are gonna focus on finding the most ideal PID values. We are gonna do this by trial and error and following the things we learnt with math class. Once we have the ideal PID values we are gonna add the code supplied during class so the wheel can start on the side.
 - We are gonna focus on optimizing the code and try to make it faster and more effecient.
 
-# Week 1
+# Week 2
 
 ## 1. Progress description
 - We changed the code so it accelarates and deccelarates a set amount from -255 to 255 PWM. 
