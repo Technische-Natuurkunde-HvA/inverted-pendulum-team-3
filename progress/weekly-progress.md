@@ -18,7 +18,9 @@ double Kd = 0.5;
 ```
 - this simple configuration worked the best. Adding a small postive Kd made the flywheel slowly stop spinning, but too big and it seemed to have a negative impact on the stability.
 ## 3. Results
-
+- semi-working PID controlled flywheel inverted pedulum
+- a set of working PID parameters (not optimal yet) 
+- a way of finding better parameters with trail and error
 ## 4. Reflection
 - We learned new things we can do in te arduino code e.g: ternary condition, switch statement. 
 
