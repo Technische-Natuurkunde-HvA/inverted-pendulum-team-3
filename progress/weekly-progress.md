@@ -180,7 +180,7 @@ df.to_csv(f'data/{filename}', index=False)
 
 
 ## 3. Results
-- ![as mentioned above we updated our OutputResponse curve. We replaced the old one with the new one (OutputResponseCurve.png)](visuals/figures/OutputResponseCurve.png)
+- ![as mentioned above we updated our OutputResponse curve. We replaced the old one with the new one (OutputResponseCurve.png)](../visuals/figures/OutputResponseCurve.png)
 - Angle sensor works
 - Every variable we can measure gets send to python during measurements. We can now observe what happens during measurements with live data. This can be especially useful when we start using our PID next week and need to adjust the PID values because we can monitor the effects on the RPM, ouput and angle. We havent added the pyserial code to the code section since we felt like we already have a lot of code. What happens in the python code is takes the string given by the arduino. It breaks it up and it parces it into a float so we can use it for the graphs. Once the connection/measurement has finished it gets turned into a csv. 
 - We lifted the wheel and it slowed down when it came closer to the center. We did this by editing supplied code, our plan is to use this code later when we got our PID working to make the wheel be able to center itself from every position.
