@@ -1,0 +1,6 @@
+- Nice to see that you managed to find a set of parameters that stabilise the pendulum.
+- In your progress report you mention that Kd has a negative effect on stability. Can you explain why that is?
+- You mention a combination of Kp, Ki, Kd parameters. How did you make this final decision? What where other combination of values that you tried? What results did you see? And how did you interpret these results and choose new values?
+- In your progress report, you refer to a folder (map = folder in English). Please make sure that you include a URL next time, whenever you refer to a file / folder in your repo.
+- When tuning the parameters make sure you have a systematic approach. Decide on which parameters to change, observe the results and based on the results, decide which parameter to change next and by how much.
+- Make sure that you report on the process and intermediate results. Explain how you made decisions and why, instead of just mentioning the final numbers.
