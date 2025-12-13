@@ -132,7 +132,7 @@ GitHubPagesTutorial-v4.md 2025-12-09
 4 / 9
 Explain that the weekly reports in `progress/` document the evolution.
 Optionally link to them:
-- [Week 1-5 report](../progress/week01.md)
+- [Week 1-5 report](progress/weekly-progress.md)
 
 ---
 ## 8. Team and Credits
@@ -154,6 +154,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
