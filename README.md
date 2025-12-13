@@ -2,7 +2,7 @@
 Students from Applied Physics at the HvA in the Netherlands have build and stabilized a rotating inverted wheel pendulum. The team has stabilized the system by using an electric driven motor controlled by an Arduino microcontroller. The code for our system was partly given and we have added our own personal changes for the goals we wanted to reach this project. 
 ---
 ## Folder explanations
-```text```
+```text
 ---inverted-pendulum-team-3     
     |   README.md
     |
@@ -73,6 +73,7 @@ Students from Applied Physics at the HvA in the Netherlands have build and stabi
                 UpsideDown.mp4
                 UpsideDownDemonstratie.mp4
                 V1.mp4
+```
 - inverted-pendulum-national-team-3/
 - code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
 - feedback/ # Internal team/supervisor comments
@@ -161,6 +162,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
