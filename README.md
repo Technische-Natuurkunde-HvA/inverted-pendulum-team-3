@@ -1,17 +1,77 @@
-  Tree output showing structure
-
-  Technical info (how to run Arduino/Python)
-
-  
-  Where to find our visuals and data
-You can find our graphics the folder 'visuals'.
-
-
-
 # Brief project description – Team 3
 Students from Applied Physics at the HvA in the Netherlands have build and stabilized a rotating inverted wheel pendulum. The team has stabilized the system by using an electric driven motor controlled by an Arduino microcontroller. The code for our system was partly given and we have added our own personal changes for the goals we wanted to reach this project. 
 ---
 ## Folder explanations
+---inverted-pendulum-team-3     
+    |   README.md
+    |
+    +---code
+    |   |   README.md
+    |   |
+    |   +---Arduino
+    |   |   +---AS5600_simple
+    |   |   |       AS5600_simple.ino
+    |   |   |
+    |   |   +---Motor_encoder_simple
+    |   |   |       Motor_encoder_simple.ino
+    |   |   |
+    |   |   +---PIDController
+    |   |   |       PIDController.ino
+    |   |   |
+    |   |   +---Swing_pendulum_simple
+    |   |   |       Swing_pendulum_simple.ino
+    |   |   |
+    |   |   \---UpsideDownPendulum
+    |   |           UpsideDownPendulum.ino
+    |   |
+    |   \---Python
+    |           csvreader.py
+    |           dataOutputResponseCurve.py
+    |           LiveData.py
+    |
+    +---data
+    |       DataUpsideDownMeting.csv
+    |       data_12-12-2025_13-49.csv
+    |       data_12-12-2025_13-51.csv
+    |       data_22-11-2025_19-59.csv
+    |       data_24-11-2025_10-57.csv
+    |       data_24-11-2025_11-02.csv
+    |       data_24-11-2025_11-32.csv
+    |       data_25-11-2025_12-56.csv
+    |       data_25-11-2025_13-08.csv
+    |       data_25-11-2025_13-09.csv
+    |       README.md
+    |
+    +---docs
+    |       index.md
+    |
+    +---feedback
+    |       feedback-week-2.md
+    |       feedback-week-3.md
+    |       feedback-week-4.md
+    |
+    +---progress
+    |       weekly-progress.md
+    |
+    \---visuals
+        |   README.md
+        |
+        +---figures
+        |   |   FlowChartV1.jpeg
+        |   |   OutputResponseCurve.png
+        |   |   README.md
+        |   |   setup.jpg
+        |   |
+        |   \---Flowchart upside down
+        |           FlowChartDigital.png
+        |           Flowchart_upside_down.jpeg
+        |           Support_for_flowchart.jpeg
+        |
+        \---videos
+                README.md
+                UpsideDown.mp4
+                UpsideDownDemonstratie.mp4
+                V1.mp4
 - inverted-pendulum-national-team-3/
 - code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
 - feedback/ # Internal team/supervisor comments
@@ -99,5 +159,6 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
