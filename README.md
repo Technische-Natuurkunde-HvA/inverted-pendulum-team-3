@@ -144,8 +144,11 @@ Team members:
 - Rinus Appelman
 - Floris de Weerd
 - Luka Marcé
+  
+---
 Team leader:
 - Youssef El Bouhassa
+--- 
 Client:
 - Hogeschool van Amsterdam
 ---
@@ -153,6 +156,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
