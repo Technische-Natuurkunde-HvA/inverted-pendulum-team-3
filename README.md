@@ -128,10 +128,7 @@ Include relevant plots:
 ![Control effort over time](../visuals/control_effort.png)
 ---
 ## 7. Project Timeline (from `/progress`)
-GitHubPagesTutorial-v4.md 2025-12-09
-4 / 9
-Explain that the weekly reports in `progress/` document the evolution.
-Optionally link to them:
+See the weekly progress in the link down below.
 - [Week 1-5 report](progress/weekly-progress.md)
 
 ---
@@ -154,6 +151,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
