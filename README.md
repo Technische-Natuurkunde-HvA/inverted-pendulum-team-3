@@ -92,7 +92,7 @@ Explain in words first (for non-technical people), then more mathematically
 - The controller reads the angle and angular velocity and chooses the motor
 command.
 (You can show block diagrams as images from `visuals/`.)
-![Control block diagram](../visuals/control_block_diagram.png)
+![Control block diagram](visuals/figures/FlowChartV1.jpeg)
 ---
 
 ## 4. Implementation
@@ -153,6 +153,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
