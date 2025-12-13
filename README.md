@@ -81,7 +81,7 @@ Inverted pendulums are widely used in society and play an important role in our 
 ---
 ## 2. System overview of the mechanical and electrical setup LINK
 The mechanical setup is designed by a partner institution from Portugal. They've designed a 3D printed pendulum holder wich fits the elctrical part of our setup perfectly. The flywheel has been through a couple of different versions to filter out some faults in the design. The final product has been designed by the team with the use of Tinkercad and Autodesk Fusion 360 and has completed all the milestones that needed to be reached. The electrical setup contains an JGA25-370 12V DC motor with an encoder of 24V. We've used AS5600 angle sensor wich measures the angle of our motor. ...The data from the sensor is send back into our code... 
-![Experimental setup](../visuals/setup_photo.jpg)
+![Experimental setup](visuals/figures/setup.jpg)
 
 ---
 ## 3. Control Principle
@@ -153,6 +153,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
