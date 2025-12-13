@@ -132,11 +132,10 @@ GitHubPagesTutorial-v4.md 2025-12-09
 4 / 9
 Explain that the weekly reports in `progress/` document the evolution.
 Optionally link to them:
-- [Week 1 report](../progress/week01.md)
-- [Week 2 report](../progress/week02.md)
-- ...
+- [Week 1-5 report](../progress/week01.md)
+
 ---
-## 8. Team and Credits FIX DIT
+## 8. Team and Credits
 Team members:
 - Joran Stavenuiter
 - Onno Dijkman
@@ -144,7 +143,6 @@ Team members:
 - Rinus Appelman
 - Floris de Weerd
 - Luka Marcé
-  
 ---
 Team leader:
 - Youssef El Bouhassa
@@ -156,6 +154,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
