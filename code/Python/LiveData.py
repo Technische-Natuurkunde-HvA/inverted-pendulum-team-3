@@ -32,42 +32,57 @@ outputlist= []
 timelist = []
 currenttime = 0 
 
+#interactive plot on
 plt.ion()
 
+#define the form of the graph with the labels
 fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(8, 10))
 anglegraph, = ax1.plot([], [], label="Angle")
 outputgraph, = ax2.plot([],[], label="Output")
 rpmgraph, = ax3.plot([],[], label="RPM")
 
-ax1.set_title("Time (s)")
-ax2.set_title("Time (s)")
-ax3.set_title("Time (s)")
+#set the title and label
+ax1.set_title("Angle over time")
+ax2.set_title("Ouput over time")
+ax3.set_title("RPM over time")
+
 
 ax1.set_ylabel("Angle (degrees)")
 ax2.set_ylabel("Output")
 ax3.set_ylabel("RPM")
+
+ax1.set_xlabel("Time (s)")
+ax2.set_xlabel("Time (s)")
+ax3.set_xlabel("Time (s)")
 
 
 ax1.legend()
 ax2.legend()
 ax3.legend()
 
+#try to make pyserial connection
 try:
     while time.time() - start < duration:
+        #reads the line in
         line = ser.readline().decode().strip()
         print(line)
+        #searches for matches between the arduino line and defined line
         match = pattern.search(line)
         if match:
+            #matches found parses it to a float
             output = float(match.group(1))
             freq   = float(match.group(2))
             rpm    = float(match.group(3))
             angle  = float(match.group(4))
+
+            #adds to the list
 
             timelist.append(time.time() - start)
             anglelist.append(angle)
             rpmlist.append(rpm)
             outputlist.append(output)
             
+            #updates the graphs
             anglegraph.set_xdata(list(timelist))
             anglegraph.set_ydata(list(anglelist))
 
@@ -89,7 +104,7 @@ except KeyboardInterrupt:
 finally:
     ser.close()        
 
-
+#create a dataset
 data = {
     "Time": timelist,
     "Angle": anglelist,
@@ -97,6 +112,7 @@ data = {
     "RPM": rpmlist
 }
 
+#convert the data set to pandas and writes it to a csv
 df = pd.DataFrame(data)
 df.to_csv(f'data/{filename}', index=False)
 
@@ -104,7 +120,7 @@ df.to_csv(f'data/{filename}', index=False)
 plt.ioff()
 plt.close('all')
 
-
+#show the final graph
 fig2, (ax1f, ax2f, ax3f) = plt.subplots(3, 1, figsize=(8, 10))
 
 ax1f.plot(timelist, anglelist, label="Angle")

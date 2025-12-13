@@ -38,10 +38,12 @@ void setup() {
 
 void loop() {
   currentMs = millis();
+  // checks if the pendulum is on 1 side and pushes it
  if (sig_angle_deg > 230 && output < 200){
     output = output + 8;
     delay(10);
   }
+  // checks if its nearing the top and slows it down
   else if (sig_angle_deg >= 230 && sig_angle_deg <= 260 && output > 0){
     output = output - 2;
     delay(5);
