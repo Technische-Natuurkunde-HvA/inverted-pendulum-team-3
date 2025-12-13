@@ -101,6 +101,10 @@ GitHubPagesTutorial-v4.md 2025-12-09
 
 ### 4.1 Arduino Control Software (folder `code/`)
 Explain:
+- The main entry point is the motor_encoder_simple ([motor_encoder.ino](code/Arduino/Motor_encoder_simple/Motor_encoder_simple.ino)). With this file you can test the motor and with a bit of editing you can find the deadzone of the motor. The deadzone (the zone where the motor wants to spin but doesnt because of lack of power) is important later when you are using a PID controller. The reason for this is because the PID doesnt automatically factor in the deadzone. So if you dont take that into account the PID wont work on tiny adjustments because it just simply wont spin. 
+- We havent set the main control loop frequency since we took the pid code straight from the source (https://github.com/br3ttb/Arduino-PID-Library/blob/master/examples/PID_Basic/PID_Basic.ino), theres no loop frequency there so we havent used it. However we have set a frequency on the data. We have set it to 10 Hz. We choose this because of the live data graphs we use. Now it looks fluent because it updates 10 times every second. 
+- As mentioned above every 0.1 seconds the data gets updated. This include the sensor readings, output, rpm and frequency. This gets send to a python file to process the data live. However we also measure the angle at the start of every loop. This is needed for the PID controller. The PID updates the motor output to make it spin and then we have set a limit for safety. We have used a constrain function (https://docs.arduino.cc/language-reference/en/functions/math/constrain/) to make sure the output values dont exceed the limit.
+
 - Main control loop frequency (e.g., 100 Hz)
 - Which `.ino` file is the main entry point
 - How sensor readings and motor outputs are handled
