@@ -6,7 +6,7 @@ import pandas as pd
 from datetime import datetime
 
 # --- UPDATE THIS PORT ---
-PORT = "COM4"       # Windows example
+PORT = "COM5"       # Windows example
 # PORT = "/dev/ttyACM0"   # Linux
 # PORT = "/dev/tty.usbmodem1101"  # Mac
 
@@ -19,8 +19,7 @@ start = time.time() # start time
 now = datetime.now()
 filename = f"data_{now.strftime('%d-%m-%Y_%H-%M')}.csv"
 
-# Wait for Arduino reset (important!)
-#time.sleep(2)
+
 
 # makes sure the output can be split so we can use the values
 pattern = re.compile(
