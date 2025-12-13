@@ -1,17 +1,3 @@
-The README.md in the repository root should give a technical overview for other GitHub users and developers
-  Brief project description 
-In this project our team has build and stabilized a rotating inverted wheel pendulum. We have stabilized the system from rotating 180 degrees upwards with the use of an Arduino microcontroller. The code for our system was partly given and we have added our own personal changes for the goals we wanted to reach this project. 
-
-  Folder explanations
-inverted-pendulum-national-team-3/
-├─ code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
-├─ feedback/ # Internal team/supervisor comments
-├─ progress/ # Weekly markdown reports (raw material)
-├─ visuals/ # Photos, plots, diagrams, videos
-├─ docs/ # Public webpage
-│ └─ index.md # Public project documentation (for GitHub Pages)
-└─ README.md # Technical repo overview for GitHub users
-
   Tree output showing structure
 
   Technical info (how to run Arduino/Python)
@@ -22,22 +8,28 @@ You can find our graphics the folder 'visuals'.
 
 
 
-# Reaction Wheel Inverted Pendulum – Team X
-This project was carried out by an international team of students at the
-Technische Natuurkunde program (HvA). The objective is to stabilize an
-inverted pendulum using a reaction wheel driven by an electric motor.
+# Brfief project description – Team 3
+Brief project description 
+Students from Applied Physics at the HvA in the Netherlands have build and stabilized a rotating inverted wheel pendulum. The team has stabilized the system by using an electric driven motor controlled by an Arduino microcontroller. The code for our system was partly given and we have added our own personal changes for the goals we wanted to reach this project. 
 ---
-## 1. Project Motivation
-(Short explanation for non-technical readers:
-why inverted pendulums are interesting, balancing, control theory, etc.)
+## Folder explanations
+inverted-pendulum-national-team-3/
+├─ code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
+├─ feedback/ # Internal team/supervisor comments
+├─ progress/ # Weekly markdown reports (raw material)
+├─ visuals/ # Photos, plots, diagrams, videos
+├─ docs/ # Public webpage
+│ └─ index.md # Public project documentation (for GitHub Pages)
+└─ README.md # Technical repo overview for GitHub users
+
+## 1. Project Motivation AFMAKEN
+Inverted pendulums are very wildly used in society and an important factor in our daily life. It's a system that balances and uses control theory... 
+
 ---
-## 2. System Overview
-Describe the mechanical and electronic setup.
+## 2. System Overview LINK
+Our mechanical setup is designed by a partner institution from Portugal. They've designed a 3D printed pendulum holder wich fits the elctrical part of our setiup perfectly. We've designed our own flywheel with the use of Tinkercad and Autodesk Fusion 360 wich we've also 3D printed. Our electrical setup contains an JGA25-370 12V DC motor with an encoder with 24V. We've used AS5600 angle sensor wich measures the angle of our motor. Describe the mechanical and electronic setup.
 ![Experimental setup](../visuals/setup_photo.jpg)
-- Pendulum arm with angle sensor
-- Reaction wheel attached to a DC motor
-- Arduino (or compatible microcontroller)
-- Power electronics and safety features
+
 ---
 ## 3. Control Principle
 Explain in words first (for non-technical people), then more mathematically
@@ -92,11 +84,17 @@ Optionally link to them:
 - ...
 ---
 ## 8. Team and Credits
-- Student names and universities
-- Supervisors
-- Collaborating institutions
+- Joran Stavenuiter
+- Onno Dijkman
+- Fleur van Essen
+- Rinus Appelman
+- Floris de Weerd
+- Luka Marcé
+- Youssef El Bouhassa
+- Hogeschool van Amsterdam
 ---
-## 9. Repository
+## 9. Repository LINK MAKEN
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
