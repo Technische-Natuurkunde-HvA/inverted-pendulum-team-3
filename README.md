@@ -74,21 +74,12 @@ Students from Applied Physics at the HvA in the Netherlands have build and stabi
                 UpsideDownDemonstratie.mp4
                 V1.mp4
 ```
-- inverted-pendulum-national-team-3/
-- code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
-- feedback/ # Internal team/supervisor comments
-- progress/ # Weekly markdown reports (raw material)
-- visuals/ # Photos, plots, diagrams, videos
-- docs/ # Public webpage
-   - index.md # Public project documentation (for GitHub Pages)
-- README.md # Technical repo overview for GitHub users
-
-## 1. Project Motivation AFMAKEN
-Inverted pendulums are very wildly used in society and an important factor in our daily life. It's a system that balances and uses control theory to stabilize mechanical structures. You can find it robots, buildings,  
+## 1. Project Motivation
+Inverted pendulums are widely used in society and play an important role in our daily lives. They are systems that balance unstable structures using control theory to maintain stability. You can find them in robots, self-balancing vehicles, and even in some engineering applications such as building stabilization systems. Pendulums are an interesting system because they actively stabilize an unnatural and unstable position in real time using feedback and control.
 
 
 ---
-## 2. System Overview`of the mechanical and electrical setup LINK
+## 2. System overview of the mechanical and electrical setup LINK
 The mechanical setup is designed by a partner institution from Portugal. They've designed a 3D printed pendulum holder wich fits the elctrical part of our setup perfectly. The flywheel has been through a couple of different versions to filter out some faults in the design. The final product has been designed by the team with the use of Tinkercad and Autodesk Fusion 360 and has completed all the milestones that needed to be reached. The electrical setup contains an JGA25-370 12V DC motor with an encoder of 24V. We've used AS5600 angle sensor wich measures the angle of our motor. ...The data from the sensor is send back into our code... 
 ![Experimental setup](../visuals/setup_photo.jpg)
 
@@ -162,6 +153,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
