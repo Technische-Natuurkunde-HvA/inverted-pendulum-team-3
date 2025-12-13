@@ -8,26 +8,25 @@ You can find our graphics the folder 'visuals'.
 
 
 
-# Brfief project description – Team 3
-Brief project description 
+# Brief project description – Team 3
 Students from Applied Physics at the HvA in the Netherlands have build and stabilized a rotating inverted wheel pendulum. The team has stabilized the system by using an electric driven motor controlled by an Arduino microcontroller. The code for our system was partly given and we have added our own personal changes for the goals we wanted to reach this project. 
 ---
 ## Folder explanations
-inverted-pendulum-national-team-3/
-├─ code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
-├─ feedback/ # Internal team/supervisor comments
-├─ progress/ # Weekly markdown reports (raw material)
-├─ visuals/ # Photos, plots, diagrams, videos
-├─ docs/ # Public webpage
-│ └─ index.md # Public project documentation (for GitHub Pages)
-└─ README.md # Technical repo overview for GitHub users
+- inverted-pendulum-national-team-3/
+- code/ # Arduino and Python code AND Measurement files (csv, dat, txt)
+- feedback/ # Internal team/supervisor comments
+- progress/ # Weekly markdown reports (raw material)
+- visuals/ # Photos, plots, diagrams, videos
+- docs/ # Public webpage
+   - index.md # Public project documentation (for GitHub Pages)
+- README.md # Technical repo overview for GitHub users
 
 ## 1. Project Motivation AFMAKEN
 Inverted pendulums are very wildly used in society and an important factor in our daily life. It's a system that balances and uses control theory... 
 
 ---
-## 2. System Overview LINK
-Our mechanical setup is designed by a partner institution from Portugal. They've designed a 3D printed pendulum holder wich fits the elctrical part of our setiup perfectly. We've designed our own flywheel with the use of Tinkercad and Autodesk Fusion 360 wich we've also 3D printed. Our electrical setup contains an JGA25-370 12V DC motor with an encoder with 24V. We've used AS5600 angle sensor wich measures the angle of our motor. Describe the mechanical and electronic setup.
+## 2. System Overview`of the mechanical and electrical setup LINK
+The mechanical setup is designed by a partner institution from Portugal. They've designed a 3D printed pendulum holder wich fits the elctrical part of our setup perfectly. The flywheel has been through a couple of different versions to filter out some faults in the design. The final product has been designed by the team with the use of Tinkercad and Autodesk Fusion 360 and has completed all the milestones that needed to be reached. The electrical setup contains an JGA25-370 12V DC motor with an encoder of 24V. We've used AS5600 angle sensor wich measures the angle of our motor. ...The data from the sensor is send back into our code... 
 ![Experimental setup](../visuals/setup_photo.jpg)
 
 ---
@@ -41,14 +40,17 @@ command.
 (You can show block diagrams as images from `visuals/`.)
 ![Control block diagram](../visuals/control_block_diagram.png)
 ---
+
 ## 4. Implementation
 GitHubPagesTutorial-v4.md 2025-12-09
 3 / 9
+
 ### 4.1 Arduino Control Software (folder `code/`)
 Explain:
 - Main control loop frequency (e.g., 100 Hz)
 - Which `.ino` file is the main entry point
 - How sensor readings and motor outputs are handled
+
 ### 4.2 Python Tools (also in `code/`)
 Explain:
 - Reading measurement files from `data/`
@@ -66,11 +68,8 @@ If you have videos in `visuals/`:
 Or link to YouTube, if you prefer.
 ---
 ## 6. Results
-Summarize:
-- Did the pendulum stabilize?
-- Typical settling time
-- Sensitivity to disturbances
-- Limitations of the design
+- The pendulum stabilized and came to rest both during the upside down challange and the regular stabilizing challenge. The average time to stabilize the pendulum for the upside down challenge is around 20 seconds. The time for stabilizing the pendulum at an angle of 30 degrees is around the 5 seconds. The system is not that sensitive for distrubances, it balances itself fairly quickly when out of balance.
+Some limitations with the design arose during the upside down challenge. The cords attatched to the motor got in the way while the pendulum turned through the     angle barrier, the barrier in wich the pendulum could stabilize itself again if it came to the top. So if the pendulum turned outside of those 30 degrees on one   side, the cords would get tangled and pulled on the motor and Arduino.
 Include relevant plots:
 ![Control effort over time](../visuals/control_effort.png)
 ---
@@ -83,18 +82,22 @@ Optionally link to them:
 - [Week 2 report](../progress/week02.md)
 - ...
 ---
-## 8. Team and Credits
+## 8. Team and Credits FIX DIT
+Team members:
 - Joran Stavenuiter
 - Onno Dijkman
 - Fleur van Essen
 - Rinus Appelman
 - Floris de Weerd
 - Luka Marcé
+Team leader:
 - Youssef El Bouhassa
+Client:
 - Hogeschool van Amsterdam
 ---
 ## 9. Repository LINK MAKEN
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
