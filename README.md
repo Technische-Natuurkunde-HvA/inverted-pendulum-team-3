@@ -87,10 +87,11 @@ The mechanical setup is designed by a partner institution from Portugal. They've
 ## 3. Control Principle
 Explain in words first (for non-technical people), then more mathematically
 (for technical readers).
-- The pendulum is naturally unstable in the upright position.
-- By accelerating or braking the reaction wheel, we generate torque.
-- The controller reads the angle and angular velocity and chooses the motor
-command.
+- We aim to keep our inverted flywheel pendulum upright, even though this position is naturally unstable.
+- We use the motor attached to the flywheel to generate torque by accelerating or decelerating it.
+- This torque should counteract gravity and push the pendulum back toward the vertical position
+- Our PID controller continuously processes the measured angle and angular velocity from our sensor to determine the appropriate motor command and resulting torque.
+- The PID controller we used had 3 parameters we 
 (You can show block diagrams as images from `visuals/`.)
 ![FLowChart](visuals/figures/FlowChartV1Digital.png)
 ---
@@ -184,6 +185,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
