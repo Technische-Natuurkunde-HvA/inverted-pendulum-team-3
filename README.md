@@ -85,12 +85,19 @@ The mechanical setup is designed by a partner institution from Portugal. They've
 
 ---
 ## 3. Control Principle
-Explain in words first (for non-technical people), then more mathematically
-(for technical readers).
-- The pendulum is naturally unstable in the upright position.
-- By accelerating or braking the reaction wheel, we generate torque.
-- The controller reads the angle and angular velocity and chooses the motor
-command.
+The basics
+- We aim to keep our inverted flywheel pendulum upright, even though this position is naturally unstable.
+- We use the motor attached to the flywheel to generate torque by accelerating or decelerating it.
+- This torque should counteract gravity and push the pendulum back toward the vertical position
+
+More technical details
+- The system is controlled using a PID controller based on feedback from an angle sensor.
+Our PID controller continuously processes the measured angle and angular velocity from our sensor to determine the appropriate motor command and resulting torque.
+- The PID controller we used had 3 parameters; K_p, K_i and K_d, by tuning these parameters we made sure the motor generated the right amount of torque at the right time.
+For this project we only had to focus on K_p, which focuses on the error in position and K_d which acts on the rate of change of that error. An integral term K_I​ was not required, as steady-state errors were negligible, so that parameter was left on zero.
+
+To solve the upside-down challenge, that is, bringing the pendulum from the stable hanging-down position to the unstable upright position and keeping it there, additional steps were added to the control logic. For this challenge, we first ensured that the pendulum was sufficiently close to the upright position before enabling the PID controller described above. If this condition was not yet satisfied, the motor was driven with a constant input whose sign was determined by the current direction of motion, thereby injecting energy into the system and increasing the swing amplitude until it was sufficient for the PID to take over.
+
 (You can show block diagrams as images from `visuals/`.)
 ![FLowChart](visuals/figures/FlowChartV1Digital.png)
 ---
@@ -189,6 +196,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
