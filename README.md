@@ -130,6 +130,8 @@ as you can see it stabilized itself fairly quickly youy can see big jumps in the
 
 Heres a demonstration of our pendulum:
  [Demonstration Upside Down](visuals/videos/UpsideDownDemonstratie.mp4)
+
+ 
 ---
 ## 7. Project Timeline (from `/progress`)
 
