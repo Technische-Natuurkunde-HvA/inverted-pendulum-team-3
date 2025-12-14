@@ -92,7 +92,7 @@ Explain in words first (for non-technical people), then more mathematically
 - The controller reads the angle and angular velocity and chooses the motor
 command.
 (You can show block diagrams as images from `visuals/`.)
-![FLowChart](visuals/figures/FlowChartV1Digital.jpeg)
+![FLowChart](visuals/figures/FlowChartV1Digital.png)
 ---
 
 ## 4. Implementation
