@@ -104,6 +104,7 @@ For this project we only had to focus on K_p, which focuses on the error in posi
 To solve the upside-down challenge, that is, bringing the pendulum from the stable hanging-down position to the unstable upright position and keeping it there, additional steps were added to the control logic. For this challenge, we first ensured that the pendulum was sufficiently close to the upright position before enabling the PID controller described above. If this condition was not yet satisfied, the motor was driven with a constant input whose sign was determined by the current direction of motion, thereby injecting energy into the system and increasing the swing amplitude until it was sufficient for the PID to take over.
 
 A simple flowchart of how our setup works:
+
 ![FLowChart](visuals/figures/FlowChartV1Digital.png)
 ---
 
@@ -201,6 +202,7 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
