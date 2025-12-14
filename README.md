@@ -87,18 +87,16 @@ The mechanical setup is designed by a partner institution from Portugal. They've
 ## 3. Control Principle
 Explain in words first (for non-technical people), then more mathematically
 (for technical readers).
-- We aim to keep our inverted flywheel pendulum upright, even though this position is naturally unstable.
-- We use the motor attached to the flywheel to generate torque by accelerating or decelerating it.
-- This torque should counteract gravity and push the pendulum back toward the vertical position
-- Our PID controller continuously processes the measured angle and angular velocity from our sensor to determine the appropriate motor command and resulting torque.
-- The PID controller we used had 3 parameters we 
+- The pendulum is naturally unstable in the upright position.
+- By accelerating or braking the reaction wheel, we generate torque.
+- The controller reads the angle and angular velocity and chooses the motor
+command.
 (You can show block diagrams as images from `visuals/`.)
 ![FLowChart](visuals/figures/FlowChartV1Digital.png)
 ---
 
 ## 4. Implementation
-GitHubPagesTutorial-v4.md 2025-12-09
-3 / 9
+
 
 ### 4.1 Arduino Control Software (folder `code/`)
 - The main entry point is the motor_encoder_simple ([motor_encoder.ino](code/Arduino/Motor_encoder_simple/Motor_encoder_simple.ino)). With this file you can test the motor and with a bit of editing you can find the deadzone of the motor. The deadzone (the zone where the motor wants to spin but doesnt because of friction and lack of power) is important later when you are using a PID controller. The reason for this is because the PID doesnt automatically factor in the deadzone. So if you dont take that into account the PID wont work on tiny adjustments because it just simply wont spin. 
@@ -126,8 +124,12 @@ As you can see below the pyserial connection works. The graph shows a low RPM be
 ## 6. Results
 - The pendulum stabilized and came to rest both during the upside down challange and the regular stabilizing challenge. The average time to stabilize the pendulum for the upside down challenge is around 20 seconds. The time for stabilizing the pendulum at an angle of 30 degrees is around the 5 seconds. The system is not that sensitive for distrubances, it balances itself fairly quickly when out of balance.
 Some limitations with the design arose during the upside down challenge. The cords attatched to the motor got in the way while the pendulum turned through the     angle barrier, the barrier in wich the pendulum could stabilize itself again if it came to the top. So if the pendulum turned outside of those 30 degrees on one   side, the cords would get tangled and pulled on the motor and Arduino.
-Include relevant plots:
-![Control effort over time](../visuals/control_effort.png)
+Heres the graph of our final measurement:
+![UpsideDownGraphFinal](visuals/figures/UpsideDownGraphFinal.png)
+as you can see it stabilized itself fairly quickly youy can see big jumps in the graph but thats because the angle measures from 0 to 359 in a circle so if the pendulum swings past 359 it goes back to 0. 
+
+Heres a demonstration of our pendulum:
+ [Demonstration Upside Down](visuals/videos/UpsideDownDemonstratie.mp4)
 ---
 ## 7. Project Timeline (from `/progress`)
 
@@ -185,7 +187,6 @@ Client:
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
-
 
 
 
