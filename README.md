@@ -198,10 +198,11 @@ Team leader:
 Client:
 - Hogeschool van Amsterdam
 ---
-## 9. Repository LINK MAKEN
+## 9. Repository
 Project repository:
 - [GitHub: inverted-pendulum-international-team-x](https://github.com/Technische-
 Natuurkunde-HvA/inverted-pendulum-international-team-x)
+
 
 
 
